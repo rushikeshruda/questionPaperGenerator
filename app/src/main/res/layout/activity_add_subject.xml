@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:background="@drawable/gradient_main"
+    tools:context="com.example.rushikesh.qpgadminaccount.AddSubject">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="top"
+        app:title="Subject"
+        app:titleMarginTop="13dp">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+        android:layout_centerVertical="true"
+    android:gravity="center"
+    android:id="@+id/linearLayout2">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="ADD SUBJECT"
+        android:layout_marginBottom="20dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+         />
+
+    <EditText
+        android:id="@+id/editTextSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="SUBJECT"/>
+
+    <Button
+        android:id="@+id/buttonSubject"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:background="@drawable/shape_small"
+        />
+
+        <Spinner
+            android:id="@+id/spinnerDeleteSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDeleteSubject"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>

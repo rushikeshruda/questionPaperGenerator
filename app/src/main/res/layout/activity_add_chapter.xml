@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:background="@drawable/gradient_main"
+    tools:context="com.example.rushikesh.qpgadminaccount.AddChapter">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="top"
+        app:title="Chapter"
+        app:titleMarginTop="13dp">
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD CHAPTER"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <Spinner
+            android:id="@+id/spinnerCourse1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+             />
+
+        <Spinner
+            android:id="@+id/spinnerSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextChapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="CHAPTER"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/addChapter1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerDeleteChapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDeleteChapter"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

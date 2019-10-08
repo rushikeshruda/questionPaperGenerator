@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/gradient"
+    tools:context="com.example.rushikesh.qpgadminaccount.Home">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
+
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                >
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/addCourse"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="COURSE DETAILS"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <Button
+                        android:id="@+id/addSubject"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="SUBJECT DETAILS"
+                        android:textColor="@color/colorSecondaryText" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/addChapter"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="CHAPTER DETAILS"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <Button
+                        android:id="@+id/addLevel"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="LEVEL DETAILS"
+                        android:textColor="@color/colorSecondaryText" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/addQuestion"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="QUESTION DETAILS"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <Button
+                        android:id="@+id/updateQuestion"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="UPDATE QUESTION"
+                        android:textColor="@color/colorSecondaryText" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/addPaperPattern"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape"
+                        android:text="PAPER PATTERN"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <Button
+                        android:id="@+id/uploadCsv"
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/shape"
+                        android:text="IMPORT CSV"
+                        android:textColor="@color/colorSecondaryText" />
+
+                </TableRow>
+
+            </TableLayout>
+
+
+        </RelativeLayout>
+</RelativeLayout>

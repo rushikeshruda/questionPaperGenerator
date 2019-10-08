@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:background="@drawable/gradient_main"
+    tools:context="com.example.rushikesh.qpgadminaccount.SetPattern">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="top"
+            app:title="Set Pattern"
+            app:titleMarginTop="13dp">
+
+        </android.support.v7.widget.Toolbar>
+
+        <Spinner
+            android:id="@+id/spinnerPatternName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <Button
+            android:id="@+id/addMainQuestion"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="ADD MAIN QUESTION"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            android:layout_marginBottom="5dp"
+            />
+
+        <Button
+            android:id="@+id/addSubQuestion"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="ADD SUB QUESTION"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            />
+
+        <Button
+            android:id="@+id/save1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorSecondaryText"
+            android:background="@drawable/shape_small"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listViewQuestion"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
