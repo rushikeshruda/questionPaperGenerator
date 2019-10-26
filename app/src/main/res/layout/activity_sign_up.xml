@@ -81,7 +81,7 @@
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="102dp"
             android:textColor="@color/colorSecondaryText"
-            android:background="@color/colorSecondaryDark"
+            android:background="@drawable/shape_small"
             />
 
 

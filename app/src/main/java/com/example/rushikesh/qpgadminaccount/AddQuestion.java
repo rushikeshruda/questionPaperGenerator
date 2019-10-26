@@ -1,8 +1,6 @@
 package com.example.rushikesh.qpgadminaccount;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +11,16 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.rushikesh.qpgadminaccount.Model.Chapter;
+import com.example.rushikesh.qpgadminaccount.Model.ChapterList;
+import com.example.rushikesh.qpgadminaccount.Model.Course;
+import com.example.rushikesh.qpgadminaccount.Model.CourseList;
+import com.example.rushikesh.qpgadminaccount.Model.Level;
+import com.example.rushikesh.qpgadminaccount.Model.LevelList;
+import com.example.rushikesh.qpgadminaccount.Model.Question;
+import com.example.rushikesh.qpgadminaccount.Model.QuestionList;
+import com.example.rushikesh.qpgadminaccount.Model.Subject;
+import com.example.rushikesh.qpgadminaccount.Model.SubjectList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -282,7 +290,8 @@ public class AddQuestion extends AppCompatActivity implements View.OnClickListen
 
             Toast.makeText(this,"Question Added Successfully",Toast.LENGTH_LONG).show();
 
-        }else {progressBar.setVisibility(View.GONE);
+        }else {
+            progressDialog.dismiss();
             editTextQuestion.setError("Enter Question");
             editTextQuestion.requestFocus();
             return;

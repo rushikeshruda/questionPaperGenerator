@@ -16,10 +16,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.rushikesh.qpgadminaccount.Model.Chapter;
+import com.example.rushikesh.qpgadminaccount.Model.ChapterList;
+import com.example.rushikesh.qpgadminaccount.Model.Course;
+import com.example.rushikesh.qpgadminaccount.Model.Level;
+import com.example.rushikesh.qpgadminaccount.Model.LevelList;
+import com.example.rushikesh.qpgadminaccount.Model.Pattern;
+import com.example.rushikesh.qpgadminaccount.Model.PatternName;
+import com.example.rushikesh.qpgadminaccount.Model.PatternNameList;
+import com.example.rushikesh.qpgadminaccount.Model.Subject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,13 +53,12 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
     PatternName patternName;
     Chapter chapter;
     Level level;
-    String chapterId, chapterTitle;
+    String  chapterId, chapterTitle;
     String questionLevel;
-    String patternNameId, subjectId, patternNameText, patternNameText2, courseId;
+    String patternNameId, subjectId, patternNameText, courseId;
     EditText editTextTotalMarks, editTextSubQuestionMarks, getEditTextSubQuestionNumber;
 
-    Course course;
-    Subject subject;
+
     private View subQuestionsView;
 
     ListView listViewQuestions;
@@ -156,68 +163,70 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
-                String questionText = adapter.getItem(position);
+                    String questionText = adapter.getItem(position);
 
-                String[] parts = questionText.split("\\-");
+                    String[] parts = questionText.split("\\-");
 
-                if (parts.length > 2) {
+                    if (parts.length > 2) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SetPattern.this);
-                    builder.setTitle("Select option");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SetPattern.this);
+                        builder.setTitle("Select option");
 
-                    builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            updateSubQuestion(position);
-                        }
-                    });
+                        builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateSubQuestion(position);
+                            }
+                        });
 
-                    builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                            list.remove(position);
-                            adapter.notifyDataSetChanged();
+                                list.remove(position);
+                                adapter.notifyDataSetChanged();
 
-                            listViewQuestions.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    listViewQuestions.smoothScrollToPosition(position);
-                                }
-                            });
+                                listViewQuestions.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        listViewQuestions.smoothScrollToPosition(position);
+                                    }
+                                });
 
-                        }
-                    });
+                            }
+                        });
 
-                    builder.show();
-
-
-                } else {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SetPattern.this);
-
-                    builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            updateMainQuestion(position);
-                        }
-                    });
-
-                    builder.setNegativeButton("Add sub question", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            updateSubQuestion1(position);
-                        }
-                    });
-
-                    builder.setTitle("Select option");
-                    builder.show();
+                        builder.show();
 
 
-                }
+                    } else {
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SetPattern.this);
+
+                        builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateMainQuestion(position);
+                            }
+                        });
+
+                        builder.setNegativeButton("Add sub question", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateSubQuestion1(position);
+                            }
+                        });
+
+                        builder.setTitle("Select option");
+                        builder.show();
+
+
+                    }
+
 
                 return false;
             }
+
         });
 
     }
@@ -228,23 +237,20 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
         databaseReferencegetPattern.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                    Pattern pattern = dataSnapshot.getValue(Pattern.class);
+                Pattern pattern = dataSnapshot.getValue(Pattern.class);
 
-                    if(pattern!=null) {
+                if (pattern != null) {
+                    String text = pattern.getPatternText();
 
-                        String id = pattern.getPatternId();
-                        String text = pattern.getPatternText();
+                    adapter.clear();
+                    String[] tokens = text.split("\\|");
 
-                        adapter.clear();
-                        String[] tokens = text.split("\\|");
+                    list = new ArrayList<>(Arrays.asList(tokens));
 
-                        list = new ArrayList<>(Arrays.asList(tokens));
-
-                        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, list);
-                        listViewQuestions.setAdapter(adapter);
-                    }else
-                        Toast.makeText(getApplicationContext(),"Empty Pattern",Toast.LENGTH_LONG).show();
-
+                    adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, list);
+                    listViewQuestions.setAdapter(adapter);
+                } else
+                    Toast.makeText(getApplicationContext(), "Empty Pattern", Toast.LENGTH_LONG).show();
 
             }
 
@@ -421,9 +427,13 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
                 String number = getEditTextSubQuestionNumber.getText().toString();
 
                 String marks = editTextSubQuestionMarks.getText().toString();
-                adapter.add("      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
-                getEditTextSubQuestionNumber.setText("");
 
+                if (number.isEmpty() || marks.isEmpty()){
+                    Toast.makeText(SetPattern.this, "All fields are required", Toast.LENGTH_SHORT).show();
+                }else {
+                    adapter.add("      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
+                    getEditTextSubQuestionNumber.setText("");
+                }
             }
         });
 
@@ -450,14 +460,14 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
                 final int pos = Integer.parseInt(getEditTextSubQuestionNumber.getText().toString());
 
                 String marks = editTextSubQuestionMarks.getText().toString();
-                list.add(position+pos,"      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
+                list.add(position + pos, "      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
                 adapter.notifyDataSetChanged();
                 getEditTextSubQuestionNumber.setText("");
 
                 listViewQuestions.post(new Runnable() {
                     @Override
                     public void run() {
-                        listViewQuestions.smoothScrollToPosition(position+pos);
+                        listViewQuestions.smoothScrollToPosition(position + pos);
                     }
                 });
 
@@ -484,7 +494,7 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
                 String number = getEditTextSubQuestionNumber.getText().toString();
 
                 String marks = editTextSubQuestionMarks.getText().toString();
-                list.set(position,"      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
+                list.set(position, "      " + number + "-" + chapterTitle + "-" + marks + "-" + questionLevel);
                 adapter.notifyDataSetChanged();
                 getEditTextSubQuestionNumber.setText("");
 
@@ -544,11 +554,18 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
             public void onClick(DialogInterface dialogInterface, int i) {
                 String questionText = editTextMainQuestion.getText().toString().trim();
                 String marks = editTextTotalMarks.getText().toString().trim();
-                int len = marks.length();
-                if (len <= 1) {
-                    marks = "0" + marks;
+
+                if (questionText.isEmpty()||marks.isEmpty())
+                {
+                    Toast.makeText(SetPattern.this, "All fields are required", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    int len = marks.length();
+                    if (len <= 1) {
+                        marks = "0" + marks;
+                    }
+                    adapter.add(questionText + "-" + marks);
                 }
-                adapter.add(questionText + "-" + marks);
             }
         });
         builder.setView(fragmentView);
@@ -603,7 +620,7 @@ public class SetPattern extends AppCompatActivity implements View.OnClickListene
                     marks = "0" + marks;
                 }
 
-                list.set(position,questionText + "-" + marks);
+                list.set(position, questionText + "-" + marks);
                 adapter.notifyDataSetChanged();
             }
         });

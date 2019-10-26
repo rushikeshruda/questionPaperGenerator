@@ -2,7 +2,6 @@ package com.example.rushikesh.qpgadminaccount;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,14 +14,20 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.rushikesh.qpgadminaccount.Model.Chapter;
+import com.example.rushikesh.qpgadminaccount.Model.ChapterList;
+import com.example.rushikesh.qpgadminaccount.Model.Course;
+import com.example.rushikesh.qpgadminaccount.Model.CourseList;
+import com.example.rushikesh.qpgadminaccount.Model.Level;
+import com.example.rushikesh.qpgadminaccount.Model.Question;
+import com.example.rushikesh.qpgadminaccount.Model.Subject;
+import com.example.rushikesh.qpgadminaccount.Model.SubjectList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,12 +40,7 @@ import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -49,24 +49,21 @@ public class UploadCsv extends AppCompatActivity implements View.OnClickListener
 
     ListView listView;
     ArrayAdapter<String> arrayAdapter;
-    Spinner spinnerCourse, spinnerSubject, spinnerChapter, spinnerLevel, spinnerDeleteQuestion;
+    Spinner spinnerCourse, spinnerSubject, spinnerChapter;
     FirebaseAuth mAuth;
-    DatabaseReference databaseReferenceGetCourse, databaseReferenceGetSubject, databaseReferenceGetChapter, databaseReferenceGetLevel, databaseReferenceAddQuestion;
+    DatabaseReference databaseReferenceGetCourse, databaseReferenceGetSubject, databaseReferenceGetChapter, databaseReferenceAddQuestion;
     ProgressBar progressBar;
     List<Course> courseList;
     List<Subject> subjectList;
     List<Chapter> chapterList;
     List<Level> levelList;
     List<Question> questionList;
-    Question question;
     Course course;
     Subject subject;
-    Level level;
     Chapter chapter;
     String courseId;
     String subjectId;
-    String chapterId, questionId;
-    String questionLevel;
+    String chapterId;
     ProgressDialog progressDialog;
 
     @Override

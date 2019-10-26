@@ -3,32 +3,29 @@
     import android.app.AlertDialog;
     import android.app.ProgressDialog;
     import android.content.DialogInterface;
-    import android.provider.ContactsContract;
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
     import android.text.TextUtils;
     import android.view.View;
 
     import android.widget.AdapterView;
-    import android.widget.ArrayAdapter;
     import android.widget.EditText;
-    import android.widget.ProgressBar;
     import android.widget.Spinner;
     import android.widget.Toast;
 
+    import com.example.rushikesh.qpgadminaccount.Model.Course;
+    import com.example.rushikesh.qpgadminaccount.Model.CourseList;
+    import com.example.rushikesh.qpgadminaccount.Model.Subject;
+    import com.example.rushikesh.qpgadminaccount.Model.SubjectList;
     import com.google.firebase.auth.FirebaseAuth;
-    import com.google.firebase.database.ChildEventListener;
     import com.google.firebase.database.DataSnapshot;
     import com.google.firebase.database.DatabaseError;
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
     import com.google.firebase.database.ValueEventListener;
 
-    import org.w3c.dom.Comment;
-
     import java.util.ArrayList;
     import java.util.List;
-    import java.util.Map;
 
     public class AddSubject extends AppCompatActivity implements View.OnClickListener{
 

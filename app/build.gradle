@@ -28,6 +28,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.nbsp:library:1.09'
+    implementation files('libs/itextg-5.5.8.jar')
+
 }
 
 apply plugin: 'com.google.gms.google-services'

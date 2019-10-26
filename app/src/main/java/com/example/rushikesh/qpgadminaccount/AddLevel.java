@@ -1,18 +1,17 @@
 package com.example.rushikesh.qpgadminaccount;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.rushikesh.qpgadminaccount.Model.Level;
+import com.example.rushikesh.qpgadminaccount.Model.LevelList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

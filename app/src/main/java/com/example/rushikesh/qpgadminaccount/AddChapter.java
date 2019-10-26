@@ -9,10 +9,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.rushikesh.qpgadminaccount.Model.Chapter;
+import com.example.rushikesh.qpgadminaccount.Model.ChapterList;
+import com.example.rushikesh.qpgadminaccount.Model.Course;
+import com.example.rushikesh.qpgadminaccount.Model.CourseList;
+import com.example.rushikesh.qpgadminaccount.Model.Subject;
+import com.example.rushikesh.qpgadminaccount.Model.SubjectList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
